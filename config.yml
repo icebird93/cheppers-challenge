@@ -1,0 +1,44 @@
+# Default components
+components:
+ create: false					# Create instance automatically
+ environment: false				# Prepare installer environment (Puppet, LAMP)
+ drupal: false					# Prepare Drupal
+ test: true						# Do tests
+ destroy: false					# Destroy instances automatically
+
+# AWS specific
+aws:
+ type: "t2.micro"				# Instance type
+ ami: "b092aaad"				# Amazon AMI
+ key: ""						# Keypair name (already added to AWS CLI)
+ security: ""					# Security group name
+ instance: ""					# Instance ID (if already running)
+
+# Drush details
+drush:
+ version: 7.1.0					# Drush version
+
+# Drupal details
+drupal:
+ version: 7.41					# Drupal version to install
+ email: ""						# Admin email
+ password: false				# Admin password for site (use false to generate new)
+ title: "Cheppers Challenge"	# Website title
+
+# Instance details
+instance:
+ os: "debian"					# Instance OS (currently supported: debian)
+
+ # MySQL
+ sql:
+  root:
+   username: root				# SQL root username
+   password: admin				# SQL root username
+  username: drupal 				# SQL user username
+  password: drupal 				# SQL user password
+  database: drupal 				# Target database
+
+ # SSH
+ ssh:
+  username: false				# Username (false means automatic)
+  key: "~/.ssh/id_rsa"			# Keyfile used to SSH
